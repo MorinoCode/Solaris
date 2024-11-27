@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgba(18,19,55,1);
+    height: 100vh;
+    width: 100vw;
+   
+}
+
+h1{
+    color: rgba(255,255,255,1);
+    font-size: 3rem;
+}
+
+p{
+    color: rgba(255,205,56,1);
+    font-size: 2rem;
+    letter-spacing: .5rem;
+}
+
+.container{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+.container__heading{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding: 2rem;
+   
+}
+
+.container__sunplanets{
+    display: flex;
+    height: 100%;
+    padding: 1rem;
+    align-items: center;
+    justify-content: start;
+    
+}
+
+.container__sun{
+    width: 20rem;
+    height: 100%;
+    background-color: gold;
+    border-radius: 50%;
+    position: relative;
+    left: -12rem;
+}
+
+.container__planets{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    .container__planets__mercury{
+        width: 2rem;
+        height: 2rem;
+        background-color: #8c8b85;
+        border-radius: 50%;
+    }
+    .container__planets__venus{
+        width: 4rem;
+        height: 4rem;
+        background-color: #e7cdcc;
+        border-radius: 50%;
+    }
+    .container__planets__earth{
+        width: 4rem;
+        height: 4rem;
+        background-color: #3f91d2;
+        border-radius: 50%;
+    }
+    .container__planets__mars{
+        width: 2rem;
+        height: 2rem;
+        background-color: #ed5a5f;
+        border-radius: 50%;
+    }
+    .container__planets__jupiter{
+        width: 12rem;
+        height: 12rem;
+        background-color: #e2916a;
+        border-radius: 50%;
+    }
+    .container__planets__saturn{
+        width: 8rem;
+        height: 8rem;
+        background-color: #c7a874;
+        border-radius: 50%;
+        .container__planets__saturn__line{
+            background-color: whitesmoke;
+            position: relative;
+            width: 3px;
+            height: 180px;
+            left: 60px;
+            bottom: 20px;
+            transform: rotate(55deg);
+            opacity: 0.7;
+            border-radius: 80%;
+        }
+    }
+    .container__planets__uranus{
+        width: 2rem;
+        height: 2rem;
+        background-color: #c7d2ed;
+        border-radius: 50%;
+    }
+    .container__planets__neptune{
+        width: 2rem;
+        height: 2rem;
+        background-color: #788fa3;
+        border-radius: 50%;
+    }
+    
+}
