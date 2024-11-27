@@ -12,21 +12,11 @@ body{
    
 }
 
-/* h1{
-    color: rgba(255,255,255,1);
-    font-size: 3rem;
-}
-
-p{
-    color: rgba(255,205,56,1);
-    font-size: 2rem;
-    letter-spacing: .5rem;
-} */
 
 .container{
     height: 100%;
-    /* display: grid; */
-    display: none;
+    display: grid;
+    /* display: none; */
     grid-template-rows: 1fr 5fr;
 }
 
@@ -35,6 +25,16 @@ p{
     flex-direction: column;
     align-items: end;
     padding: 2rem;
+    h1{
+        color: rgba(255,255,255,1);
+        font-size: 3rem;
+    }
+    
+    p{
+        color: rgba(255,205,56,1);
+        font-size: 2rem;
+        letter-spacing: .5rem;
+    }
    
 }
 
@@ -54,6 +54,7 @@ p{
     border-radius: 50%;
     position: relative;
     left: -12rem;
+    cursor: pointer;
 }
 
 .container__planets{
@@ -67,36 +68,42 @@ p{
         height: 2rem;
         background-color: #8c8b85;
         border-radius: 50%;
+        cursor: pointer;
     }
     .container__planets__venus{
         width: 4rem;
         height: 4rem;
         background-color: #e7cdcc;
         border-radius: 50%;
+        cursor: pointer;
     }
     .container__planets__earth{
         width: 4rem;
         height: 4rem;
         background-color: #3f91d2;
         border-radius: 50%;
+        cursor: pointer;
     }
     .container__planets__mars{
         width: 2rem;
         height: 2rem;
         background-color: #ed5a5f;
         border-radius: 50%;
+        cursor: pointer;
     }
     .container__planets__jupiter{
         width: 12rem;
         height: 12rem;
         background-color: #e2916a;
         border-radius: 50%;
+        cursor: pointer;
     }
     .container__planets__saturn{
         width: 8rem;
         height: 8rem;
         background-color: #c7a874;
         border-radius: 50%;
+        cursor: pointer;
         .container__planets__saturn__line{
             background-color: whitesmoke;
             position: relative;
@@ -114,12 +121,14 @@ p{
         height: 2rem;
         background-color: #c7d2ed;
         border-radius: 50%;
+        cursor: pointer;
     }
     .container__planets__neptune{
         width: 2rem;
         height: 2rem;
         background-color: #788fa3;
         border-radius: 50%;
+        cursor: pointer;
     }
     
 }
@@ -128,6 +137,7 @@ p{
 /*seconde page */
 .infromationContainer{
     display: flex;
+    display: none;
     height: 100%;
     padding: 1rem;
     align-items: center;
@@ -169,7 +179,7 @@ p{
         }
     }
 
-    .infromationContainer__info__deimensions{
+    .infromationContainer__info__demensions{
         border-bottom: 2px solid rgba(255, 255, 255, 0.166);
         h4{
             color: white;
@@ -189,9 +199,23 @@ p{
     }
 
     .informationContainer__info__moons{
+        border-bottom: 2px solid rgba(255, 255, 255, 0.166);
+        margin: 1rem 0;
+        padding: 1rem 0;
         h4{
             color: white;
             margin: 1rem 0;
         }
+        span{
+            color: white;
+            opacity: .7;
+            margin: 1rem 0.2rem ;
+        }
+    }
+    .closeBtn{
+        background-color: whitesmoke;
+        padding: 0.75rem;
+        font-weight: bold;
+        margin: 1rem 0;
     }
 }
