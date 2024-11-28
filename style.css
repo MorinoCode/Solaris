@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +13,7 @@ body{
    
 }
 
-
+/*first page */
 .container{
     height: 100%;
     display: grid;
@@ -28,6 +29,7 @@ body{
     h1{
         color: rgba(255,255,255,1);
         font-size: 3rem;
+        
     }
     
     p{
@@ -39,24 +41,41 @@ body{
 }
 
 .container__sunplanets{
+    /* display: flex;
+    height: 100%;
+    padding: 1rem;
+    align-items: center;
+    justify-content: start; */
     display: flex;
     height: 100%;
     padding: 1rem;
     align-items: center;
     justify-content: start;
+    overflow: hidden;
     
 }
 
 .container__sun{
-    width: 20rem;
+    /* width: 20rem;
     height: 100%;
     background-color: gold;
     border-radius: 50%;
     position: relative;
     left: -12rem;
+    cursor: pointer; */
+    width: 40vw; /* Bredden anpassar sig till viewport */
+    height: 40vw; /* Höjden matchar bredden för att behålla cirkelformen */
+    background-color: gold;
+    border-radius: 50%;
+    position: relative;
+    left: -20vw; /* Flytta solen halvt utanför skärmen */
     cursor: pointer;
 }
 
+.container__sun:hover{
+    box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+    transition: box-shadow 0.5s ease;
+}
 .container__planets{
     display: flex;
     justify-content: space-around;
@@ -70,12 +89,20 @@ body{
         border-radius: 50%;
         cursor: pointer;
     }
+    .container__planets__mercury:hover{
+        box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+        transition: box-shadow 0.5s ease;
+    }
     .container__planets__venus{
         width: 4rem;
         height: 4rem;
         background-color: #e7cdcc;
         border-radius: 50%;
         cursor: pointer;
+    }
+    .container__planets__venus:hover{
+        box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+        transition: box-shadow 0.5s ease;
     }
     .container__planets__earth{
         width: 4rem;
@@ -84,6 +111,10 @@ body{
         border-radius: 50%;
         cursor: pointer;
     }
+    .container__planets__earth:hover{
+        box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+        transition: box-shadow 0.5s ease;
+    }
     .container__planets__mars{
         width: 2rem;
         height: 2rem;
@@ -91,12 +122,20 @@ body{
         border-radius: 50%;
         cursor: pointer;
     }
+    .container__planets__mars:hover{
+        box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+        transition: box-shadow 0.5s ease;
+    }
     .container__planets__jupiter{
         width: 12rem;
         height: 12rem;
         background-color: #e2916a;
         border-radius: 50%;
         cursor: pointer;
+    }
+    .container__planets__jupiter:hover{
+        box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+        transition: box-shadow 0.5s ease;
     }
     .container__planets__saturn{
         width: 8rem;
@@ -116,12 +155,24 @@ body{
             border-radius: 80%;
         }
     }
+    .container__planets__saturn:hover{
+        box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+        transition: box-shadow 0.5s ease;
+        .container__planets__saturn__line:hover{
+            transform: rotate(105deg);
+            transition: transform 0.5s ease;
+        }
+    }
     .container__planets__uranus{
         width: 2rem;
         height: 2rem;
         background-color: #c7d2ed;
         border-radius: 50%;
         cursor: pointer;
+    }
+    .container__planets__uranus:hover{
+        box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+        transition: box-shadow 0.5s ease;
     }
     .container__planets__neptune{
         width: 2rem;
@@ -130,27 +181,43 @@ body{
         border-radius: 50%;
         cursor: pointer;
     }
-    
+    .container__planets__neptune:hover{
+        box-shadow: 0 0 10px 10px rgb(250, 177, 177);
+        transition: box-shadow 0.5s ease;
+    }
 }
 
 
-/*seconde page */
+/*second page */
 .infromationContainer{
-    display: flex;
+    /* display: flex;
     display: none;
     height: 100%;
     padding: 1rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
+    display: flex;
+    height: 100%;
+    padding: 1rem;
+    align-items: center;
+    justify-content: start;
+    overflow: hidden;
 }
 
 .infromationContainer__planet{
-    width: 50rem;
+    /* width: 50rem;
     height: 70%;
     background-color: #418ed4;
     border-radius: 50%;
     position: relative;
-    left: -9rem;
+    left: -9rem; */
+    width: 40vw; 
+    height: 40vw; 
+    background-color: gold;
+    border-radius: 50%;
+    position: relative;
+    left: -20vw; 
+    cursor: pointer; 
 
 
 }
@@ -214,8 +281,28 @@ body{
     }
     .closeBtn{
         background-color: whitesmoke;
+        border-radius: 1rem;
         padding: 0.75rem;
         font-weight: bold;
         margin: 1rem 0;
+        
+    }
+    .closeBtn:hover{
+        background-color: rgb(201, 197, 197) ;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 768px) {
+    .container__sun {
+        width: 60vw;
+        height: 60vw;
+        left: -30vw;
+    }
+
+    .infromationContainer__planet {
+        width: 70vw; /* Gör planeten större på små skärmar */
+        height: 70vw;
+        left: -35vw; /* Flytta hälften av den nya storleken */
     }
 }

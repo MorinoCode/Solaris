@@ -296,3 +296,9 @@ closeBtn.addEventListener('click' , ()=>{
     firstPage.style.display = 'grid'
     secondPage.style.display = 'none'
 })
+//or
+const closePlanet= document.querySelector(".infromationContainer__planet")
+closePlanet.addEventListener('click' , ()=>{
+    firstPage.style.display = 'grid'
+    secondPage.style.display = 'none'
+})
