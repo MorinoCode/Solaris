@@ -302,3 +302,36 @@ closePlanet.addEventListener('click' , ()=>{
     firstPage.style.display = 'grid'
     secondPage.style.display = 'none'
 })
+
+//stars
+const container = document.querySelector('.infromationContainer__info');
+
+for (let i = 0; i < 20; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    const x = Math.random() * 90;
+    const y = Math.random() * 90;
+
+    star.style.left = `${x}%`;
+    star.style.top = `${y}%`;
+
+    container.appendChild(star);
+}
+
+const stars = document.querySelectorAll('.star');
+closeBtn.addEventListener('mouseenter', () => {
+    stars.forEach(star => {
+        star.style.boxShadow = '0 0 2px 2px gold';
+        star.style.transition= 'box-shadow 0.7s ease';
+    });
+});
+
+closeBtn.addEventListener('mouseleave', () => {
+    stars.forEach(star => {
+        star.style.backgroundColor = 'white';
+        star.style.boxShadow = '0 0 5px white';
+        star.style.opacity = '.7';
+        
+    });
+});

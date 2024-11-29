@@ -41,34 +41,23 @@ body{
 }
 
 .container__sunplanets{
-    /* display: flex;
-    height: 100%;
-    padding: 1rem;
-    align-items: center;
-    justify-content: start; */
     display: flex;
     height: 100%;
     padding: 1rem;
     align-items: center;
     justify-content: start;
     overflow: hidden;
-    
+  
 }
 
 .container__sun{
-    /* width: 20rem;
-    height: 100%;
+    
+    width: 10vw; 
+    height: 30vw; 
     background-color: gold;
     border-radius: 50%;
     position: relative;
-    left: -12rem;
-    cursor: pointer; */
-    width: 40vw; /* Bredden anpassar sig till viewport */
-    height: 40vw; /* Höjden matchar bredden för att behålla cirkelformen */
-    background-color: gold;
-    border-radius: 50%;
-    position: relative;
-    left: -20vw; /* Flytta solen halvt utanför skärmen */
+    left: -7vw; 
     cursor: pointer;
 }
 
@@ -196,30 +185,40 @@ body{
     padding: 1rem;
     align-items: center;
     justify-content: space-between; */
-    display: flex;
+    display: none;
     height: 100%;
     padding: 1rem;
     align-items: center;
     justify-content: start;
     overflow: hidden;
+    
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px white;
+    opacity: .5;
+    z-index: -10;
 }
 
 .infromationContainer__planet{
-    /* width: 50rem;
-    height: 70%;
-    background-color: #418ed4;
-    border-radius: 50%;
-    position: relative;
-    left: -9rem; */
-    width: 40vw; 
+    min-width: 15vw; 
     height: 40vw; 
     background-color: gold;
     border-radius: 50%;
     position: relative;
-    left: -20vw; 
+    left: -12vw; 
     cursor: pointer; 
 
 
+}
+.infromationContainer__planet:hover{
+    box-shadow: 0 0 30px 30px rgb(250, 177, 177);
+    transition: box-shadow 0.7s ease;
 }
 
 .infromationContainer__info{
@@ -293,6 +292,8 @@ body{
     }
 }
 
+
+
 @media (max-width: 768px) {
     .container__sun {
         width: 60vw;
@@ -301,8 +302,8 @@ body{
     }
 
     .infromationContainer__planet {
-        width: 70vw; /* Gör planeten större på små skärmar */
+        width: 70vw; 
         height: 70vw;
-        left: -35vw; /* Flytta hälften av den nya storleken */
+        left: -35vw; 
     }
 }
