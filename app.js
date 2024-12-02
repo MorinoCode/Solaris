@@ -54,23 +54,23 @@ const getPlanetsInfo= async (apiType , endPoint , apiKey) => {
 
 
 //Solen
-const sol = document.querySelector(".container__sun")
-sol.addEventListener('click' , async ()=>{
+const sun = document.querySelector(".container__sun")
+sun.addEventListener('click' , async ()=>{
     const planets = await getApiKey("POST" , 'keys')
-    const sol = planets.bodies[0];
-    console.log(sol);
+    const sun = planets.bodies[0];
+    console.log(sun);
 
     firstPage.style.display = 'none'
     secondPage.style.display = 'flex'
 
     planet.style.backgroundColor = 'gold';
-    planetsName.innerText= sol.name
-    planetsLatinName.innerText= sol.latinName
-    planetsDesc.innerText= sol.desc
-    planetscircumference.innerText= sol.circumference
-    planetsDistance.innerText= sol.distance
-    planetsMaxTemp.innerText = sol.temp.day
-    planetsMinTemp.innerText = sol.temp.night
+    planetsName.innerText= sun.name
+    planetsLatinName.innerText= sun.latinName
+    planetsDesc.innerText= sun.desc
+    planetscircumference.innerText= sun.circumference
+    planetsDistance.innerText= sun.distance
+    planetsMaxTemp.innerText = sun.temp.day
+    planetsMinTemp.innerText = sun.temp.night
     planetsMoon.innerHTML = `
     <h4>MÅNAR</h4>
     <p>Inget</p>`
