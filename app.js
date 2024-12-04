@@ -49,246 +49,82 @@ const getPlanetsInfo= async (apiType , endPoint , apiKey) => {
 
 }
 
+//displayData
+const displayData= async (planetsNumber, planetsColor = "#788fa3") =>{
+    try {
+        
+        const planets = await getApiKey("POST", "keys");
 
+       
+        if (!planets.bodies || !planets.bodies[planetsNumber]) {
+            throw new Error(`Planet with index ${planetsNumber} does not exist.`);
+        }
 
+        const myPlanet = planets.bodies[planetsNumber];
+        
+
+        
+        firstPage.style.display = "none";
+        secondPage.style.display = "flex";
+
+        planet.style.backgroundColor = planetsColor;
+        planetsName.innerText = myPlanet.name;
+        planetsLatinName.innerText = myPlanet.latinName;
+        planetsDesc.innerText = myPlanet.desc;
+        planetscircumference.innerText = myPlanet.circumference;
+        planetsDistance.innerText = myPlanet.distance;
+        planetsMaxTemp.innerText = myPlanet.temp.day;
+        planetsMinTemp.innerText = myPlanet.temp.night;
+        planetsMoon.innerHTML = `<h4>Månen</h4>`;
+        if (!myPlanet.moons || myPlanet.moons.length === 0) {
+            planetsMoon.innerHTML += `<span>Inget</span>`;
+        } else {
+            myPlanet.moons.forEach((moon) => {
+                planetsMoon.innerHTML += `<span>${moon}, </span>`;
+            });
+        }
+    } catch (error) {
+        console.error("Error displaying planet data:", error);
+    }
+}
 
 
 //Solen
 const sun = document.querySelector(".container__sun")
-sun.addEventListener('click' , async ()=>{
-    const planets = await getApiKey("POST" , 'keys')
-    const sun = planets.bodies[0];
-    console.log(sun);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = 'gold';
-    planetsName.innerText= sun.name
-    planetsLatinName.innerText= sun.latinName
-    planetsDesc.innerText= sun.desc
-    planetscircumference.innerText= sun.circumference
-    planetsDistance.innerText= sun.distance
-    planetsMaxTemp.innerText = sun.temp.day
-    planetsMinTemp.innerText = sun.temp.night
-    planetsMoon.innerHTML = `
-    <h4>MÅNAR</h4>
-    <p>Inget</p>`
-
-})
+sun.addEventListener('click' ,()=> displayData(0 , "gold"))
 
 //mercury
 const mercury = document.querySelector(".container__planets__mercury")
-mercury.addEventListener('click' , async ()=>{
-    const planets = await getApiKey("POST" , 'keys')
-    const mercury = planets.bodies[1];
-    console.log(mercury);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = '#8c8b85';
-    planetsName.innerText= mercury.name
-    planetsLatinName.innerText= mercury.latinName
-    planetsDesc.innerText= mercury.desc
-    planetscircumference.innerText= mercury.circumference
-    planetsDistance.innerText= mercury.distance
-    planetsMaxTemp.innerText = mercury.temp.day
-    planetsMinTemp.innerText = mercury.temp.night
-    planetsMoon.innerHTML = `
-    <h4>MÅNAR</h4>
-    <p>Inget</p>`
-
-})
+mercury.addEventListener('click' , ()=> displayData(1 , '#8c8b85'))
 
 
 //venus
 const venus = document.querySelector(".container__planets__venus")
-venus.addEventListener('click' , async ()=>{
-    const planets = await getApiKey("POST" , 'keys')
-    const venus = planets.bodies[2];
-    console.log(venus);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = '#e7cdcc';
-    planetsName.innerText= venus.name
-    planetsLatinName.innerText= venus.latinName
-    planetsDesc.innerText= venus.desc
-    planetscircumference.innerText= venus.circumference
-    planetsDistance.innerText= venus.distance
-    planetsMaxTemp.innerText = venus.temp.day
-    planetsMinTemp.innerText = venus.temp.night
-    planetsMoon.innerHTML = `
-    <h4>MÅNAR</h4>
-    <p>Inget</p>`
-
-})
+venus.addEventListener('click' , ()=> displayData(2 , '#e7cdcc'))
 
 //earth
 const earth = document.querySelector(".container__planets__earth")
-earth.addEventListener('click' , async ()=>{
-    const planets = await getApiKey("POST" , 'keys')
-    const earth = planets.bodies[3];
-    console.log(earth);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = '#3f91d2';
-    planetsName.innerText= earth.name
-    planetsLatinName.innerText= earth.latinName
-    planetsDesc.innerText= earth.desc
-    planetscircumference.innerText= earth.circumference
-    planetsDistance.innerText= earth.distance
-    planetsMaxTemp.innerText = earth.temp.day
-    planetsMinTemp.innerText = earth.temp.night
-    planetsMoon.innerHTML = `<h4>Månen</h4>`
-    if(planetsMoon.querySelectorAll('span').length === 0){
-        earth.moons.forEach((moon) => {
-            planetsMoon.innerHTML += moon? `<span>${moon} ,</span>`: `<span>Inget</span>`
-        });
-    }
-
-})
+earth.addEventListener('click' , ()=> displayData(3 , '#3f91d2'))
 
 //mars
 const mars = document.querySelector(".container__planets__mars")
-mars.addEventListener('click' , async ()=>{
-    const planets = await getApiKey("POST" , 'keys')
-    const mars = planets.bodies[4];
-    console.log(mars);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = '#ed5a5f';
-    planetsName.innerText= mars.name
-    planetsLatinName.innerText= mars.latinName
-    planetsDesc.innerText= mars.desc
-    planetscircumference.innerText= mars.circumference
-    planetsDistance.innerText= mars.distance
-    planetsMaxTemp.innerText = mars.temp.day
-    planetsMinTemp.innerText = mars.temp.night
-    planetsMoon.innerHTML = `<h4>Månen</h4>`
-    if(planetsMoon.querySelectorAll('span').length === 0){
-        mars.moons.forEach((moon) => {
-            planetsMoon.innerHTML += moon? `<span>${moon} ,</span>`: `<p>Inget</p>`
-        });
-    }
-
-})
+mars.addEventListener('click' , ()=> displayData(4 , '#ed5a5f'))
 
 //jupiter
 const jupiter = document.querySelector(".container__planets__jupiter")
-jupiter.addEventListener('click' , async ()=>{
-    
-    const planets = await getApiKey("POST" , 'keys')
-    const jupiter = planets.bodies[5];
-    console.log(jupiter);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = '#e2916a';
-    planetsName.innerText= jupiter.name
-    planetsLatinName.innerText= jupiter.latinName
-    planetsDesc.innerText= jupiter.desc
-    planetscircumference.innerText= jupiter.circumference
-    planetsDistance.innerText= jupiter.distance
-    planetsMaxTemp.innerText = jupiter.temp.day
-    planetsMinTemp.innerText = jupiter.temp.night
-    planetsMoon.innerHTML = `<h4>Månen</h4>`
-    if(planetsMoon.querySelectorAll('span').length === 0){
-        jupiter.moons.forEach((moon) => {
-            planetsMoon.innerHTML += moon? `<span>${moon} ,</span>`: `<p>Inget</p>`
-        });
-    }
-    
-
-})
+jupiter.addEventListener('click' ,()=> displayData(5 , '#e2916a'))
 
 //saturn
 const saturn = document.querySelector(".container__planets__saturn")
-saturn.addEventListener('click' , async ()=>{
-    const planets = await getApiKey("POST" , 'keys')
-    const saturn = planets.bodies[6];
-    console.log(saturn);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = '#c7a874';
-    planetsName.innerText= saturn.name
-    planetsLatinName.innerText= saturn.latinName
-    planetsDesc.innerText= saturn.desc
-    planetscircumference.innerText= saturn.circumference
-    planetsDistance.innerText= saturn.distance
-    planetsMaxTemp.innerText = saturn.temp.day
-    planetsMinTemp.innerText = saturn.temp.night
-    planetsMoon.innerHTML = `<h4>Månen</h4>`
-    if(planetsMoon.querySelectorAll('span').length === 0){
-        saturn.moons.forEach((moon) => {
-            planetsMoon.innerHTML += moon? `<span>${moon} ,</span>`: `<p>Inget</p>`
-        });
-    }
-
-})
+saturn.addEventListener('click' , ()=> displayData(6 , '#c7a874'))
 
 //uranus
 const uranus = document.querySelector(".container__planets__uranus")
-uranus.addEventListener('click' , async ()=>{
-    const planets = await getApiKey("POST" , 'keys')
-    const uranus = planets.bodies[7];
-    console.log(uranus);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = '#c7d2ed';
-    planetsName.innerText= uranus.name
-    planetsLatinName.innerText= uranus.latinName
-    planetsDesc.innerText= uranus.desc
-    planetscircumference.innerText= uranus.circumference
-    planetsDistance.innerText= uranus.distance
-    planetsMaxTemp.innerText = uranus.temp.day
-    planetsMinTemp.innerText = uranus.temp.night
-    planetsMoon.innerHTML = `<h4>Månen</h4>`
-    if(planetsMoon.querySelectorAll('span').length === 0){
-        uranus.moons.forEach((moon) => {
-            planetsMoon.innerHTML += moon? `<span>${moon} ,</span>`: `<p>Inget</p>`
-        });
-    }
-
-})
+uranus.addEventListener('click' , ()=> displayData(7 , '#c7d2ed'))
 
 //neptune
 const neptune = document.querySelector(".container__planets__neptune")
-neptune.addEventListener('click' , async ()=>{
-    const planets = await getApiKey("POST" , 'keys')
-    const neptune = planets.bodies[8];
-    console.log(neptune);
-
-    firstPage.style.display = 'none'
-    secondPage.style.display = 'flex'
-
-    planet.style.backgroundColor = '#788fa3';
-    planetsName.innerText= neptune.name
-    planetsLatinName.innerText= neptune.latinName
-    planetsDesc.innerText= neptune.desc
-    planetscircumference.innerText= neptune.circumference
-    planetsDistance.innerText= neptune.distance
-    planetsMaxTemp.innerText = neptune.temp.day
-    planetsMinTemp.innerText = neptune.temp.night
-    planetsMoon.innerHTML = `<h4>Månen</h4>`
-    if(planetsMoon.querySelectorAll('span').length === 0){
-        neptune.moons.forEach((moon) => {
-            planetsMoon.innerHTML += moon? `<span>${moon} ,</span>`: `<p>Inget</p>`
-        });
-    }
-
-})
+neptune.addEventListener('click' , ()=> displayData(8 , '#788fa3'))
 
 //closeBtn
 const closeBtn= document.querySelector("#closeBtn")
@@ -296,6 +132,7 @@ closeBtn.addEventListener('click' , ()=>{
     firstPage.style.display = 'grid'
     secondPage.style.display = 'none'
 })
+
 //or
 const closePlanet= document.querySelector(".infromationContainer__planet")
 closePlanet.addEventListener('click' , ()=>{
